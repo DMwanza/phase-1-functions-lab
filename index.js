@@ -70,20 +70,50 @@
 //   }
 // }
 
-const streetHq=42
-function distanceFromHqInBlocks(blocks){
-  const dist= streetHq-blocks
-  return Math.abs(dist)
-}
+// const streetHq=42
+// function distanceFromHqInBlocks(blocks){
+//   const dist= streetHq-blocks
+//   return Math.abs(dist)
+// }
 
-const distanceFromHqInFeet=(blocks)=>{
-  const feet=distanceFromHqInBlocks(blocks)
-  return feet*264
-}
-function distanceTravelledInFeet(start,stop){
-  const distFt=Math.abs(stop-start)
-  return distFt*264
-}
-function calculatesFarePrice(){
+// const distanceFromHqInFeet=(blocks)=>{
+//   const feet=distanceFromHqInBlocks(blocks)
+//   return feet*264
+// }
+// function distanceTravelledInFeet(start,stop){
+//   const distFt=Math.abs(stop-start)
+//   return distFt*264
+// }
+// function calculatesFarePrice(){
   
+// }
+const streetHq=42
+const distanceFromHqInBlocks=(blocks)=>{
+const dist= streetHq-blocks
+return Math.abs(dist)
+}
+const distanceFromHqInFeet=(blocks)=>{
+ const distFeet= distanceFromHqInBlocks(blocks)
+ return distFeet*264
+}
+const distanceTravelledInFeet=(start,stop)=>{
+  const distFeet=(start-stop)*264
+  return Math.abs(distFeet)
+}
+const calculatesFarePrice=(start,stop)=>{
+  const distFt=distanceTravelledInFeet(start,stop)
+  let fare=0
+  if(distFt<400){
+    return fare
+  }
+  else if(distFt>400&&distFt<=2000){
+    fare=(distFt-400)*0.02
+    return fare
+  }
+  else if(distFt>2000&&distFt<2500){
+    return fare=25
+  }
+  else{
+    return "cannot travel that far"
+  }
 }
