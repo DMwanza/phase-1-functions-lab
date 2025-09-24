@@ -87,33 +87,63 @@
 // function calculatesFarePrice(){
   
 // }
+
+// const streetHq=42
+// const distanceFromHqInBlocks=(blocks)=>{
+// const dist= streetHq-blocks
+// return Math.abs(dist)
+// }
+// const distanceFromHqInFeet=(blocks)=>{
+//  const distFeet= distanceFromHqInBlocks(blocks)
+//  return distFeet*264
+// }
+// const distanceTravelledInFeet=(start,stop)=>{
+//   const distFeet=(start-stop)*264
+//   return Math.abs(distFeet)
+// }
+// const calculatesFarePrice=(start,stop)=>{
+//   const distFt=distanceTravelledInFeet(start,stop)
+//   let fare=0
+//   if(distFt<400){
+//     return fare
+//   }
+//   else if(distFt>400&&distFt<=2000){
+//     fare=(distFt-400)*0.02
+//     return fare
+//   }
+//   else if(distFt>2000&&distFt<2500){
+//     return fare=25
+//   }
+//   else{
+//     return "cannot travel that far"
+//   }
+// }
+
 const streetHq=42
 const distanceFromHqInBlocks=(blocks)=>{
-const dist= streetHq-blocks
-return Math.abs(dist)
+  return Math.abs(streetHq-blocks)
 }
 const distanceFromHqInFeet=(blocks)=>{
- const distFeet= distanceFromHqInBlocks(blocks)
- return distFeet*264
+  const feet=distanceFromHqInBlocks(blocks)*264
+  return feet
 }
-const distanceTravelledInFeet=(start,stop)=>{
-  const distFeet=(start-stop)*264
-  return Math.abs(distFeet)
+function distanceTravelledInFeet(start,stop){
+  const dist=Math.abs(stop-start)*264
+  return dist
 }
-const calculatesFarePrice=(start,stop)=>{
-  const distFt=distanceTravelledInFeet(start,stop)
+function calculatesFarePrice(start,stop){
+const dist=distanceTravelledInFeet(start,stop)
   let fare=0
-  if(distFt<400){
+  if (dist<400){
     return fare
   }
-  else if(distFt>400&&distFt<=2000){
-    fare=(distFt-400)*0.02
-    return fare
+  else if(dist>=400&&dist<=2000){
+    return fare=(dist-400)*0.02
   }
-  else if(distFt>2000&&distFt<2500){
-    return fare=25
+  else if(dist>2000&&dist<2500){
+    return fare =25
   }
   else{
-    return "cannot travel that far"
+    return ("cannot travel that far")
   }
 }
